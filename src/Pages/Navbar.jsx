@@ -5,14 +5,13 @@ import {
   Menu,
   X,
   ArrowUpRight,
-  Moon,
-  Sun,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { AnimatedThemeToggler } from "../Components/ui/animated-theme-toggler";
+import { CoolMode } from "@/Components/ui/cool-mode";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
 
   const location = useLocation();
 
@@ -31,30 +30,11 @@ function Navbar() {
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme === "light") {
-      setIsDark(false);
       document.documentElement.classList.remove("dark");
     } else {
-      setIsDark(true);
       document.documentElement.classList.add("dark");
     }
   }, []);
-
-  /* ---------------------------------
-     Toggle Theme
-  ---------------------------------- */
-  const toggleTheme = () => {
-    const newDarkState = !isDark;
-
-    setIsDark(newDarkState);
-
-    if (newDarkState) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   const isActive = (path) => location.pathname === path;
 
@@ -98,7 +78,7 @@ function Navbar() {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="group relative z-10 flex items-center"
+            className="group relative  z-10 flex items-center"
           >
             <span
               className="
@@ -166,6 +146,7 @@ function Navbar() {
             "
           >
             {navLinks.map((link) => (
+              <CoolMode>
               <Link
                 key={link.name}
                 to={link.path}
@@ -240,6 +221,7 @@ function Navbar() {
                   {link.name}
                 </span>
               </Link>
+              </CoolMode>
             ))}
           </div>
 
@@ -247,9 +229,7 @@ function Navbar() {
           <div className="flex items-center gap-2">
 
             {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
+            <AnimatedThemeToggler
               className="
                 relative
                 flex
@@ -276,30 +256,7 @@ function Navbar() {
                 dark:hover:bg-purple-500/10
                 dark:hover:text-purple-400
               "
-            >
-              <motion.div
-                key={isDark ? "sun" : "moon"}
-                initial={{
-                  opacity: 0,
-                  rotate: -90,
-                  scale: 0.5,
-                }}
-                animate={{
-                  opacity: 1,
-                  rotate: 0,
-                  scale: 1,
-                }}
-                transition={{
-                  duration: 0.25,
-                }}
-              >
-                {isDark ? (
-                  <Sun size={19} />
-                ) : (
-                  <Moon size={19} />
-                )}
-              </motion.div>
-            </button>
+            />
 
             {/* Desktop CTA */}
             <Link

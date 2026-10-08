@@ -1,12 +1,15 @@
 import React from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-
+import {AnimatedGradientText} from "./../Components/ui/animated-gradient-text"
 // Dark theme image
 import heroDarkImage from "../assets/darkheroimg.jpeg";
 
 // Light theme image
 import heroLightImage from "../assets/lightheroimg.jpeg";
+import { BorderBeam } from "@/Components/ui/border-beam";
+import { Button } from "@/Components/ui/button";
+import { Highlighter } from "@/Components/ui/highlighter";
 
 function HeroSection() {
   return (
@@ -250,20 +253,17 @@ function HeroSection() {
             "
           >
             We Build Digital
-
-            <span
-              className="
-                block
-                bg-gradient-to-r
-                from-purple-600
-                via-violet-500
-                to-fuchsia-500
-                bg-clip-text
-                text-transparent
-              "
-            >
+<br />
+             <AnimatedGradientText
+      speed={1}
+      colorFrom="##9b34eb"
+      colorTo="#8e07f5"
+      className="text-4xl  sm:text-5xl
+              md:text-6xl font-semibold tracking-tight"
+    >
               Products for Growing
-            </span>
+               </AnimatedGradientText>
+
 
             <span className="block">
               Businesses
@@ -287,8 +287,12 @@ function HeroSection() {
             "
           >
             We're a technology team helping ambitious businesses turn
-            bold ideas into reliable digital products—from web platforms
-            to mobile apps—built to grow with you.
+            bold ideas into reliable digital products—   <Highlighter action="underline" color="#FF9800">
+from web Development
+        </Highlighter>{" "} 
+            to   <Highlighter action="highlight" color="#45029e">
+      mobile apps—built
+        </Highlighter>{" "}  to grow with you.
           </p>
 
           {/* =================================================
@@ -304,6 +308,8 @@ function HeroSection() {
                 inline-flex
                 items-center
                 justify-center
+                h-12
+                w-44
                 gap-2
                 rounded-full
                 bg-gradient-to-r
@@ -338,54 +344,23 @@ function HeroSection() {
             </a>
 
             {/* View Work */}
-            <a
-              href="/services"
-              className="
-                group
-                inline-flex
-                items-center
-                justify-center
-                gap-2
-                rounded-full
-                border
-                border-slate-300
-                bg-white/70
-                px-7
-                py-3.5
-                text-sm
-                font-medium
-                text-slate-800
-                shadow-sm
-                backdrop-blur-xl
-                transition-all
-                duration-300
-
-                hover:-translate-y-0.5
-                hover:border-purple-400/50
-                hover:bg-purple-50
-                hover:text-purple-700
-
-                dark:border-white/15
-                dark:bg-black/20
-                dark:text-white/85
-                dark:hover:border-purple-400/50
-                dark:hover:bg-white/10
-                dark:hover:text-white
-              "
+            <Button
+              className="relative h-12 w-44 rounded-full overflow-hidden"
+              size="lg"
+              variant="outline"
             >
-              Explore Our Work
-
-              <ArrowUpRight
-                size={16}
-                className="
-                  opacity-70
-                  transition-transform
-                  duration-300
-                  group-hover:-translate-y-0.5
-                  group-hover:translate-x-0.5
-                "
+              Explore Our Services
+              <BorderBeam
+                size={40}
+                initialOffset={20}
+                className="from-transparent via-purple-500 to-transparent"
+                transition={{
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 20,
+                }}
               />
-            </a>
+            </Button>
           </div>
 
           {/* =================================================

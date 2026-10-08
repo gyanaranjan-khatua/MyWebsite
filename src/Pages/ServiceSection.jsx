@@ -10,6 +10,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { DiaTextReveal } from "@/Components/ui/dia-text-reveal";
 
 function Services() {
   const [activeService, setActiveService] = useState(0);
@@ -296,8 +297,17 @@ function Services() {
                 md:text-6xl
               "
             >
+              
               Digital solutions
-              <span
+              <br />
+                <DiaTextReveal
+        className="text-4xl font-bold tracking-tight"
+        colors={["#f97316", "#eab308", "#22c55e", "#3b82f6", "#a855f7"]}
+        delay={0.35}
+        duration={2.4}
+        text="built around your needs."
+      />
+              {/* <span
                 className="
                   block
                   text-slate-400
@@ -305,7 +315,7 @@ function Services() {
                 "
               >
                 built around your needs.
-              </span>
+              </span> */}
             </h2>
           </div>
 
