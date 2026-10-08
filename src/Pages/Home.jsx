@@ -8,8 +8,9 @@ function Home() {
   return (
     <>
     <HeroSection/>
-    <AboutSection/>
-    <ServiceSection/>
+     <ServiceSection/>
+   
+   
     <WhyChooseUs/>
     
     </>

@@ -1,11 +1,19 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowUpRight,
+  Moon,
+  Sun,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
   const location = useLocation();
 
   const navLinks = [
@@ -13,46 +21,148 @@ function Navbar() {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Contact", path: "/contact" },
+    { name: "Blog", path: "/blog" },
   ];
+
+  /* ---------------------------------
+     Load Saved Theme
+  ---------------------------------- */
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+      setIsDark(false);
+      document.documentElement.classList.remove("dark");
+    } else {
+      setIsDark(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  /* ---------------------------------
+     Toggle Theme
+  ---------------------------------- */
+  const toggleTheme = () => {
+    const newDarkState = !isDark;
+
+    setIsDark(newDarkState);
+
+    if (newDarkState) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  };
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="fixed top-0 left-0 z-50 w-full">
+    <header className="fixed left-0 top-0 z-50 w-full">
       <nav className="w-full">
-        <div className="relative flex h-[78px] w-full items-center justify-between border-b border-white/10 bg-black/90 px-5 backdrop-blur-xl sm:px-8 lg:px-28">
 
-          {/* Top Amber Light */}
-          <div className="pointer-events-none absolute left-0 right-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+        {/* Main Navbar */}
+        <div
+          className="
+            relative flex h-[78px] w-full items-center justify-between
+            border-b
+            border-slate-200/70
+            bg-white/90
+            px-5
+            backdrop-blur-xl
+            transition-colors duration-500
 
-          {/* Gyanex Text Logo */}
+            dark:border-white/10
+            dark:bg-[#050509]/90
+
+            sm:px-8
+            lg:px-28
+          "
+        >
+
+          {/* Top Purple Light */}
+          <div
+            className="
+              pointer-events-none
+              absolute left-0 right-0 top-0
+              h-[1px]
+              bg-gradient-to-r
+              from-transparent
+              via-purple-500/70
+              to-transparent
+            "
+          />
+
+          {/* Logo */}
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
             className="group relative z-10 flex items-center"
           >
-            <span className="text-[28px] font-semibold tracking-[-0.04em] text-white transition-all duration-300 group-hover:text-amber-400 sm:text-[30px]">
+            <span
+              className="
+                text-[28px]
+                font-semibold
+                tracking-[-0.04em]
+                text-slate-950
+                transition-all duration-300
+
+                dark:text-white
+
+                sm:text-[30px]
+              "
+            >
               Gyan
-              <span className="text-amber-400 transition-colors duration-300 group-hover:text-white">
+              <span
+                className="
+                  text-purple-600
+                  transition-colors duration-300
+                  group-hover:text-purple-500
+
+                  dark:text-purple-400
+                  dark:group-hover:text-purple-300
+                "
+              >
                 ex
               </span>
             </span>
 
-            {/* Small amber underline */}
-            <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-amber-400 transition-all duration-500 group-hover:w-full" />
+            {/* Purple Underline */}
+            <span
+              className="
+                absolute
+                -bottom-1
+                left-0
+                h-[1px]
+                w-0
+                bg-purple-600
+                transition-all duration-500
+                group-hover:w-full
+
+                dark:bg-purple-400
+              "
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <div
             className="
-              hidden lg:flex
+              hidden
               items-center
               rounded-full
-              border border-white/[0.12]
-              bg-white/[0.06]
+              border
+              border-slate-200
+              bg-slate-100/70
               p-1.5
-              shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_8px_30px_rgba(0,0,0,0.25)]
+              shadow-[inset_0_1px_1px_rgba(0,0,0,0.04),0_8px_30px_rgba(0,0,0,0.06)]
               backdrop-blur-2xl
+
+              dark:border-white/[0.12]
+              dark:bg-white/[0.06]
+              dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.08),0_8px_30px_rgba(0,0,0,0.25)]
+
+              lg:flex
             "
           >
             {navLinks.map((link) => (
@@ -71,11 +181,17 @@ function Navbar() {
                       mass: 0.7,
                     }}
                     className="
-                      absolute inset-0
+                      absolute
+                      inset-0
                       rounded-full
-                      border border-white/[0.10]
-                      bg-white/[0.10]
-                      shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_0_18px_rgba(245,158,11,0.08)]
+                      border
+                      border-purple-200
+                      bg-purple-100
+                      shadow-[inset_0_1px_2px_rgba(124,58,237,0.08),0_0_18px_rgba(124,58,237,0.08)]
+
+                      dark:border-white/[0.10]
+                      dark:bg-white/[0.10]
+                      dark:shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_0_18px_rgba(139,92,246,0.12)]
                     "
                   >
                     <motion.span
@@ -93,8 +209,11 @@ function Navbar() {
                         w-1
                         -translate-x-1/2
                         rounded-full
-                        bg-amber-400
-                        shadow-[0_0_10px_rgba(251,191,36,1)]
+                        bg-purple-600
+                        shadow-[0_0_10px_rgba(124,58,237,0.8)]
+
+                        dark:bg-purple-400
+                        dark:shadow-[0_0_10px_rgba(168,85,247,1)]
                       "
                     />
                   </motion.div>
@@ -103,15 +222,18 @@ function Navbar() {
                 <span
                   className={`
                     relative z-10
-                    block rounded-full
+                    block
+                    rounded-full
                     px-5 py-2.5
-                    text-sm font-medium
+                    text-sm
+                    font-medium
                     tracking-wide
                     transition-colors duration-300
+
                     ${
                       isActive(link.path)
-                        ? "text-white"
-                        : "text-white/60 hover:text-white"
+                        ? "text-purple-700 dark:text-white"
+                        : "text-slate-600 hover:text-slate-950 dark:text-white/60 dark:hover:text-white"
                     }
                   `}
                 >
@@ -121,54 +243,138 @@ function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <Link
-            to="/contact"
-            className="
-              group hidden lg:flex
-              items-center gap-2
-              rounded-full
-              border border-amber-500/40
-              bg-gradient-to-r from-amber-400 to-amber-500
-              px-5 py-3
-              text-sm font-semibold text-black
-              transition-all duration-300
-              hover:bg-amber-400
-              hover:shadow-[0_0_25px_rgba(245,158,11,0.20)]
-            "
-          >
-            Let's Talk
+          {/* Right Controls */}
+          <div className="flex items-center gap-2">
 
-            <ArrowUpRight
-              size={17}
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
               className="
-                transition-transform duration-300
-                group-hover:-translate-y-0.5
-                group-hover:translate-x-0.5
-              "
-            />
-          </Link>
+                relative
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                overflow-hidden
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-100
+                text-slate-700
+                transition-all duration-300
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="
-              relative z-10
-              flex h-11 w-11
-              items-center justify-center
-              rounded-xl
-              border border-white/10
-              bg-white/[0.06]
-              text-white
-              transition-all duration-300
-              hover:border-amber-500/40
-              hover:text-amber-400
-              lg:hidden
-            "
-            aria-label="Toggle navigation"
-          >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+                hover:border-purple-300
+                hover:bg-purple-50
+                hover:text-purple-600
+
+                dark:border-white/10
+                dark:bg-white/[0.06]
+                dark:text-white
+                dark:hover:border-purple-500/40
+                dark:hover:bg-purple-500/10
+                dark:hover:text-purple-400
+              "
+            >
+              <motion.div
+                key={isDark ? "sun" : "moon"}
+                initial={{
+                  opacity: 0,
+                  rotate: -90,
+                  scale: 0.5,
+                }}
+                animate={{
+                  opacity: 1,
+                  rotate: 0,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.25,
+                }}
+              >
+                {isDark ? (
+                  <Sun size={19} />
+                ) : (
+                  <Moon size={19} />
+                )}
+              </motion.div>
+            </button>
+
+            {/* Desktop CTA */}
+            <Link
+              to="/contact"
+              className="
+                group
+                hidden
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-purple-500/40
+                bg-gradient-to-r
+                from-purple-600
+                to-violet-500
+                px-5
+                py-3
+                text-sm
+                font-semibold
+                text-white
+                transition-all duration-300
+
+                hover:from-purple-500
+                hover:to-violet-400
+                hover:shadow-[0_0_25px_rgba(139,92,246,0.25)]
+
+                lg:flex
+              "
+            >
+              Let's Talk
+
+              <ArrowUpRight
+                size={17}
+                className="
+                  transition-transform duration-300
+                  group-hover:-translate-y-0.5
+                  group-hover:translate-x-0.5
+                "
+              />
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="
+                relative
+                z-10
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
+                rounded-xl
+                border
+                border-slate-200
+                bg-slate-100
+                text-slate-800
+                transition-all duration-300
+
+                hover:border-purple-300
+                hover:text-purple-600
+
+                dark:border-white/10
+                dark:bg-white/[0.06]
+                dark:text-white
+                dark:hover:border-purple-500/40
+                dark:hover:text-purple-400
+
+                lg:hidden
+              "
+              aria-label="Toggle navigation"
+            >
+              {isOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -178,29 +384,40 @@ function Navbar() {
             transition-all duration-500
             ease-[cubic-bezier(0.22,1,0.36,1)]
             lg:hidden
+
             ${
               isOpen
-                ? "max-h-[420px] opacity-100"
+                ? "max-h-[500px] opacity-100"
                 : "max-h-0 opacity-0"
             }
           `}
         >
           <div
             className="
-              border-b border-white/10
-              bg-black/95
-              px-5 py-4
+              border-b
+              border-slate-200
+              bg-white/95
+              px-5
+              py-4
               shadow-2xl
               backdrop-blur-2xl
+              transition-colors duration-500
+
+              dark:border-white/10
+              dark:bg-[#050509]/95
             "
           >
             <div
               className="
                 rounded-2xl
-                border border-white/[0.10]
-                bg-white/[0.05]
+                border
+                border-slate-200
+                bg-slate-100/70
                 p-2
                 backdrop-blur-2xl
+
+                dark:border-white/[0.10]
+                dark:bg-white/[0.05]
               "
             >
               {navLinks.map((link) => (
@@ -209,38 +426,60 @@ function Navbar() {
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={`
-                    flex items-center justify-between
+                    flex
+                    items-center
+                    justify-between
                     rounded-xl
-                    px-4 py-3.5
-                    text-sm font-medium
+                    px-4
+                    py-3.5
+                    text-sm
+                    font-medium
                     transition-all duration-300
+
                     ${
                       isActive(link.path)
-                        ? "bg-amber-500 text-black"
-                        : "text-white/70 hover:bg-white/[0.07] hover:text-white"
+                        ? "bg-purple-600 text-white shadow-[0_0_20px_rgba(124,58,237,0.2)]"
+                        : "text-slate-600 hover:bg-purple-50 hover:text-purple-700 dark:text-white/70 dark:hover:bg-white/[0.07] dark:hover:text-white"
                     }
                   `}
                 >
                   {link.name}
 
                   {isActive(link.path) && (
-                    <span className="h-1.5 w-1.5 rounded-full bg-black" />
+                    <span
+                      className="
+                        h-1.5
+                        w-1.5
+                        rounded-full
+                        bg-white
+                      "
+                    />
                   )}
                 </Link>
               ))}
 
+              {/* Mobile CTA */}
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}
                 className="
                   mt-2
-                  flex items-center justify-center gap-2
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
                   rounded-xl
-                  bg-amber-500
-                  px-4 py-3.5
-                  text-sm font-semibold text-black
+                  bg-gradient-to-r
+                  from-purple-600
+                  to-violet-500
+                  px-4
+                  py-3.5
+                  text-sm
+                  font-semibold
+                  text-white
                   transition-all duration-300
-                  hover:bg-amber-400
+                  hover:from-purple-500
+                  hover:to-violet-400
                 "
               >
                 Let's Talk
@@ -255,4 +494,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

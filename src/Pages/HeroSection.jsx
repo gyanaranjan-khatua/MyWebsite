@@ -1,393 +1,536 @@
-
 import React from "react";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
-import heroImage from "../assets/heroimg.png";
+// Dark theme image
+import heroDarkImage from "../assets/darkheroimg.jpeg";
+
+// Light theme image
+import heroLightImage from "../assets/lightheroimg.jpeg";
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white">
+    <section
+      className="
+        relative
+        min-h-screen
+        lg:min-h-[50vh]
+        w-full
+        overflow-hidden
+        bg-[#fafafa]
+        text-slate-950
+        transition-colors
+        duration-500
+        dark:bg-[#050509]
+        dark:text-white
+      "
+    >
+      {/* =====================================================
+          FULL BACKGROUND IMAGE
+      ====================================================== */}
 
-      {/* =========================
-          BACKGROUND GRID
-      ========================== */}
       <div className="pointer-events-none absolute inset-0">
-
-        {/* Grid */}
-        <div
-          className="absolute inset-0 opacity-[0.16]"
-          style={{
-            backgroundImage: `
-              linear-gradient(
-                rgba(255,255,255,0.08) 1px,
-                transparent 1px
-              ),
-              linear-gradient(
-                90deg,
-                rgba(255,255,255,0.08) 1px,
-                transparent 1px
-              )
-            `,
-            backgroundSize: "70px 70px",
-          }}
+        {/* Dark Theme Image */}
+        <img
+          src={heroDarkImage}
+          alt=""
+          aria-hidden="true"
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            object-center
+            opacity-0
+            transition-opacity
+            duration-700
+            dark:opacity-100
+          "
         />
 
-        {/* Radial grid fade */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_78%)]" />
+        {/* Light Theme Image */}
+        <img
+          src={heroLightImage}
+          alt=""
+          aria-hidden="true"
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            opacity-100
+            transition-opacity
+            duration-700
+            dark:opacity-0
+          "
+        />
 
-        {/* Amber glow behind content */}
-        <div className="absolute left-[5%] top-[35%] h-[350px] w-[350px] rounded-full bg-amber-500/[0.08] blur-[130px]" />
+        {/* =================================================
+            LEFT SIDE PREMIUM FADE
+        ================================================= */}
 
-        {/* Amber glow behind image */}
-        <div className="absolute right-[5%] top-[15%] h-[350px] w-[350px] rounded-full bg-amber-400/[0.06] blur-[130px]" />
+        {/* Light Theme Fade */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#fafafa]
+            from-[0%]
+            via-[#fafafa]/95
+            via-[28%]
+          
+            to-transparent
+            dark:hidden
+          "
+        />
+
+        {/* Dark Theme Fade */}
+        <div
+          className="
+            absolute
+            inset-0
+            hidden
+            bg-gradient-to-r
+            from-[#050509]
+            from-[0%]
+            via-[#050509]/95
+            via-[25%]
+            via-[#050509]/75
+            
+           
+            to-transparent
+            dark:block
+          "
+        />
+
+        {/* =================================================
+            EXTRA SOFT LEFT GLOW
+        ================================================= */}
+
+        <div
+          className="
+            absolute
+            inset-y-0
+            left-0
+            w-[65%]
+            bg-[radial-gradient(
+              ellipse_at_left,
+              rgba(124,58,237,0.08),
+              transparent_65%
+            )]
+            dark:bg-[radial-gradient(
+              ellipse_at_left,
+              rgba(124,58,237,0.14),
+              transparent_65%
+            )]
+          "
+        />
+
+        {/* =================================================
+            TOP / BOTTOM SOFT FADES
+        ================================================= */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            top-0
+            h-24
+            bg-gradient-to-b
+            from-[#fafafa]/40
+            to-transparent
+            dark:from-[#050509]/50
+          "
+        />
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-32
+            bg-gradient-to-t
+            from-[#fafafa]/70
+            to-transparent
+            dark:from-[#050509]/70
+          "
+        />
       </div>
 
-      {/* =========================
+      {/* =====================================================
           HERO CONTENT
-      ========================== */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 pb-16 pt-28 sm:px-8 lg:px-10">
+      ====================================================== */}
 
-        <div className="grid w-full items-center gap-14 lg:grid-cols-[0.9fr_1fr] lg:gap-20">
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          flex
+          min-h-screen
+          lg:min-h-[50vh]
+          w-full
+          max-w-[1500px]
+          items-center
+          px-5
+          pb-16
+          pt-28
+          sm:px-8
+          md:px-12
+          lg:px-16
+          xl:px-20
+        "
+      >
+        {/* =================================================
+            LEFT CONTENT
+        ================================================= */}
 
-          {/* =========================
-              LEFT — CONTENT
-          ========================== */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.9,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="order-1"
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 0.9,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            relative
+            z-20
+            w-full
+            max-w-[680px]
+          "
+        >
+          {/* Small Label */}
+          <div className="mb-6 flex items-center gap-3">
+            <span
+              className="
+                h-px
+                w-10
+                bg-purple-600
+                dark:bg-purple-400
+              "
+            />
+
+            <span
+              className="
+                text-[10px]
+                font-semibold
+                uppercase
+                tracking-[0.25em]
+                text-purple-600
+                dark:text-purple-400
+                sm:text-xs
+              "
+            >
+              A Digital Product Company
+            </span>
+          </div>
+
+          {/* =================================================
+              HEADING
+          ================================================= */}
+
+          <h1
+            className="
+              max-w-[700px]
+              text-5xl
+              font-semibold
+              leading-[1.03]
+              tracking-[-0.045em]
+              text-slate-950
+
+              dark:text-white
+
+              sm:text-6xl
+              md:text-7xl
+              lg:text-[68px]
+              xl:text-[74px]
+            "
           >
+            We Build Digital
 
-            {/* Small Label */}
-            <div className="mb-6 flex items-center gap-3">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-purple-600
+                via-violet-500
+                to-fuchsia-500
+                bg-clip-text
+                text-transparent
+              "
+            >
+              Products for Growing
+            </span>
 
-              <span className="h-px w-10 bg-amber-400" />
+            <span className="block">
+              Businesses
+            </span>
+          </h1>
 
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">
-                Welcome to Gyanex
-              </span>
+          {/* =================================================
+              DESCRIPTION
+          ================================================= */}
 
-            </div>
+          <p
+            className="
+              mt-7
+              max-w-[560px]
+              text-base
+              leading-7
+              text-slate-600
+              dark:text-white/60
+              sm:text-lg
+              sm:leading-8
+            "
+          >
+            We're a technology team helping ambitious businesses turn
+            bold ideas into reliable digital products—from web platforms
+            to mobile apps—built to grow with you.
+          </p>
 
-            {/* Heading */}
-            <h1 className="max-w-2xl text-5xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-6xl md:text-7xl lg:text-[72px]">
+          {/* =================================================
+              CTA BUTTONS
+          ================================================= */}
 
-              Ideas into
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            {/* Get Started */}
+            <a
+              href="/contact"
+              className="
+                group
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                bg-gradient-to-r
+                from-purple-600
+                to-violet-500
+                px-7
+                py-3.5
+                text-sm
+                font-semibold
+                text-white
+                shadow-[0_10px_35px_rgba(124,58,237,0.25)]
+                transition-all
+                duration-300
 
-              <span className="block">
-                <span className="text-white">
-                  Digital{" "}
-                </span>
+                hover:-translate-y-0.5
+                hover:from-purple-500
+                hover:to-violet-400
+                hover:shadow-[0_15px_45px_rgba(124,58,237,0.35)]
+              "
+            >
+              Build With Us
 
-                <span className="text-amber-400">
-                  Impact.
-                </span>
-              </span>
-
-            </h1>
-
-            {/* Description */}
-            <p className="mt-7 max-w-xl text-base leading-7 text-white/55 sm:text-lg">
-              Gyanex creates modern digital experiences that combine
-              thoughtful design, powerful technology, and a clear vision
-              to help businesses move forward.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-
-              {/* Primary CTA */}
-              <a
-                href="/contact"
+              <ArrowUpRight
+                size={17}
                 className="
-                  group
-                  inline-flex
+                  transition-transform
+                  duration-300
+                  group-hover:-translate-y-0.5
+                  group-hover:translate-x-0.5
+                "
+              />
+            </a>
+
+            {/* View Work */}
+            <a
+              href="/services"
+              className="
+                group
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                border
+                border-slate-300
+                bg-white/70
+                px-7
+                py-3.5
+                text-sm
+                font-medium
+                text-slate-800
+                shadow-sm
+                backdrop-blur-xl
+                transition-all
+                duration-300
+
+                hover:-translate-y-0.5
+                hover:border-purple-400/50
+                hover:bg-purple-50
+                hover:text-purple-700
+
+                dark:border-white/15
+                dark:bg-black/20
+                dark:text-white/85
+                dark:hover:border-purple-400/50
+                dark:hover:bg-white/10
+                dark:hover:text-white
+              "
+            >
+              Explore Our Work
+
+              <ArrowUpRight
+                size={16}
+                className="
+                  opacity-70
+                  transition-transform
+                  duration-300
+                  group-hover:-translate-y-0.5
+                  group-hover:translate-x-0.5
+                "
+              />
+            </a>
+          </div>
+
+          {/* =================================================
+              BENEFITS
+          ================================================= */}
+
+          <div
+            className="
+              mt-11
+              flex
+              flex-wrap
+              gap-x-7
+              gap-y-5
+              border-t
+              border-slate-200/80
+              pt-7
+
+              dark:border-white/10
+
+              sm:gap-x-8
+            "
+          >
+            {/* Premium Quality */}
+            <div className="flex items-center gap-2.5">
+              <div
+                className="
+                  flex
+                  h-7
+                  w-7
+                  shrink-0
                   items-center
                   justify-center
-                  gap-2
                   rounded-full
-                  bg-amber-500
-                  px-6
-                  py-3.5
-                  text-sm
-                  font-semibold
-                  text-black
-                  transition-all
-                  duration-300
-                  hover:bg-amber-400
-                  hover:shadow-[0_0_30px_rgba(245,158,11,0.22)]
+                  bg-purple-100
+                  text-purple-600
+
+                  dark:bg-purple-500/10
+                  dark:text-purple-400
                 "
               >
-                Start a Project
+                <CheckCircle2 size={16} />
+              </div>
 
-                <ArrowUpRight
-                  size={17}
-                  className="
-                    transition-transform
-                    duration-300
-                    group-hover:-translate-y-0.5
-                    group-hover:translate-x-0.5
-                  "
-                />
-              </a>
-
-              {/* Secondary CTA */}
-              <a
-                href="/services"
+              <span
                 className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-white/15
-                  bg-white/[0.04]
-                  px-6
-                  py-3.5
                   text-sm
                   font-medium
-                  text-white/80
-                  backdrop-blur-xl
-                  transition-all
-                  duration-300
-                  hover:border-amber-400/30
-                  hover:bg-white/[0.08]
-                  hover:text-white
+                  text-slate-700
+                  dark:text-white/75
                 "
               >
-                Explore Services
-              </a>
-
+                Built for Growth
+              </span>
             </div>
 
-            {/* =========================
-                STATS
-            ========================== */}
-            <div className="mt-12 flex flex-wrap gap-x-8 gap-y-5 border-t border-white/10 pt-7 sm:gap-x-10">
-
-              <div>
-                <p className="text-2xl font-semibold text-white">
-                  01
-                </p>
-
-                <p className="mt-1 text-xs uppercase tracking-wider text-white/35">
-                  Vision
-                </p>
-              </div>
-
-              <div className="hidden h-10 w-px bg-white/10 sm:block" />
-
-              <div>
-                <p className="text-2xl font-semibold text-white">
-                  100%
-                </p>
-
-                <p className="mt-1 text-xs uppercase tracking-wider text-white/35">
-                  Commitment
-                </p>
-              </div>
-
-              <div className="hidden h-10 w-px bg-white/10 sm:block" />
-
-              <div>
-                <p className="text-2xl font-semibold text-amber-400">
-                  ∞
-                </p>
-
-                <p className="mt-1 text-xs uppercase tracking-wider text-white/35">
-                  Possibilities
-                </p>
-              </div>
-
-            </div>
-
-          </motion.div>
-
-          {/* =========================
-              RIGHT — IMAGE
-          ========================== */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.9,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="relative order-2"
-          >
-
-            {/* Image Wrapper */}
-            <div className="relative mx-auto max-w-[620px]">
-
-              {/* Amber Border Glow */}
+            {/* Clean Code */}
+            <div className="flex items-center gap-2.5">
               <div
                 className="
-                  absolute
-                  -inset-[1px]
-                  rounded-[30px]
-                  bg-gradient-to-br
-                  from-amber-400/50
-                  via-transparent
-                  to-white/10
-                  opacity-70
-                  blur-[1px]
-                "
-              />
+                  flex
+                  h-7
+                  w-7
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-purple-100
+                  text-purple-600
 
-              {/* Image Container */}
-              <div
-                className="
-                  relative
-                  aspect-[4/4.5]
-                  overflow-hidden
-                  rounded-[30px]
-                  border
-                  border-white/10
-                  bg-white/[0.04]
-                  shadow-2xl
+                  dark:bg-purple-500/10
+                  dark:text-purple-400
                 "
               >
-
-                <img
-                  src={heroImage}
-                  alt="Gyanex Digital Technology"
-                  className="
-                    h-full
-                    w-full
-                    object-cover
-                    opacity-90
-                    transition-transform
-                    duration-700
-                    hover:scale-105
-                  "
-                />
-
-                {/* Dark Overlay */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    bg-gradient-to-t
-                    from-black
-                    via-transparent
-                    to-black/10
-                  "
-                />
-
-                {/* Amber Bottom Glow */}
-                <div
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-40
-                    w-full
-                    bg-gradient-to-t
-                    from-amber-500/10
-                    to-transparent
-                  "
-                />
-
-                {/* =========================
-                    FLOATING GLASS BADGE
-                ========================== */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.7,
-                    duration: 0.6,
-                  }}
-                  className="
-                    absolute
-                    bottom-6
-                    left-6
-                    rounded-2xl
-                    border
-                    border-white/15
-                    bg-black/50
-                    px-5
-                    py-4
-                    backdrop-blur-xl
-                  "
-                >
-
-                  <div className="flex items-center gap-3">
-
-                    <div
-                      className="
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-full
-                        bg-amber-500
-                        text-black
-                      "
-                    >
-                      <Sparkles size={17} />
-                    </div>
-
-                    <div>
-                      <p className="text-xs text-white/50">
-                        Building the future
-                      </p>
-
-                      <p className="text-sm font-medium text-white">
-                        One digital idea at a time
-                      </p>
-                    </div>
-
-                  </div>
-
-                </motion.div>
-
+                <CheckCircle2 size={16} />
               </div>
 
-              {/* Decorative Corner — Top Right */}
-              <div
+              <span
                 className="
-                  absolute
-                  -right-3
-                  -top-3
-                  h-16
-                  w-16
-                  rounded-tr-[25px]
-                  border-r
-                  border-t
-                  border-amber-400/40
+                  text-sm
+                  font-medium
+                  text-slate-700
+                  dark:text-white/75
                 "
-              />
-
-              {/* Decorative Corner — Bottom Left */}
-              <div
-                className="
-                  absolute
-                  -bottom-3
-                  -left-3
-                  h-16
-                  w-16
-                  rounded-bl-[25px]
-                  border-b
-                  border-l
-                  border-amber-400/30
-                "
-              />
-
+              >
+                Scalable by Design
+              </span>
             </div>
 
-          </motion.div>
+            {/* Lifetime Support */}
+            <div className="flex items-center gap-2.5">
+              <div
+                className="
+                  flex
+                  h-7
+                  w-7
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-purple-100
+                  text-purple-600
 
-        </div>
+                  dark:bg-purple-500/10
+                  dark:text-purple-400
+                "
+              >
+                <CheckCircle2 size={16} />
+              </div>
 
+              <span
+                className="
+                  text-sm
+                  font-medium
+                  text-slate-700
+                  dark:text-white/75
+                "
+              >
+                A Team That Partners With You
+              </span>
+            </div>
+          </div>
+        </motion.div>
       </div>
+
+      {/* =====================================================
+          RIGHT SIDE IMAGE VISIBILITY ENHANCEMENT
+      ====================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-0
+          top-0
+          z-[2]
+          hidden
+          h-full
+          w-[52%]
+          bg-gradient-to-l
+          from-transparent
+          via-transparent
+          to-transparent
+          lg:block
+        "
+      />
 
       {/* Bottom Fade */}
       <div
@@ -397,13 +540,15 @@ function HeroSection() {
           bottom-0
           left-0
           right-0
-          h-32
+          z-20
+          h-20
           bg-gradient-to-t
-          from-black
+          from-[#fafafa]
           to-transparent
+
+          dark:from-[#050509]
         "
       />
-
     </section>
   );
 }

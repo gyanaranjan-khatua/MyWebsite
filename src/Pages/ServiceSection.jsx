@@ -6,7 +6,8 @@ import {
   Palette,
   Globe2,
   Check,
-    Sparkles,
+  Sparkles,
+  Megaphone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -70,111 +71,284 @@ function Services() {
         "Design systems",
       ],
     },
+    {
+      number: "05",
+      title: "Digital Marketing",
+      shortTitle: "Digital Marketing",
+      icon: Megaphone,
+      description:
+        "Data-driven digital marketing strategies that help businesses increase visibility, reach the right audience, and generate meaningful growth.",
+      points: [
+        "Search engine optimization",
+        "Social media marketing",
+        "Google & Meta advertising",
+        "Content & growth strategies",
+      ],
+    },
   ];
 
   const active = services[activeService];
   const ActiveIcon = active.icon;
 
   return (
-    <section className="relative overflow-hidden bg-black py-24 text-white sm:py-32">
-
-      {/* =========================
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#fafafa]
+        py-24
+        text-slate-950
+        transition-colors
+        duration-500
+        dark:bg-[#050509]
+        dark:text-white
+        sm:py-32
+      "
+    >
+      {/* =====================================================
           BACKGROUND
-      ========================== */}
-      <div className="pointer-events-none absolute inset-0">
+      ====================================================== */}
+{/* =========================
+    BACKGROUND
+========================== */}
+<div className="pointer-events-none absolute inset-0">
 
-        {/* Technical Grid */}
-        <div
-          className="absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage: `
-              linear-gradient(
-                rgba(255,255,255,0.08) 1px,
-                transparent 1px
-              ),
-              linear-gradient(
-                90deg,
-                rgba(255,255,255,0.08) 1px,
-                transparent 1px
-              )
-            `,
-            backgroundSize: "70px 70px",
-          }}
-        />
+  {/* Light Theme Grid */}
+  <div
+    className="
+      absolute
+      inset-0
+      opacity-[0.45]
+      dark:hidden
+    "
+    style={{
+      backgroundImage: `
+        linear-gradient(
+          rgba(15,23,42,0.07) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(15,23,42,0.07) 1px,
+          transparent 1px
+        )
+      `,
+      backgroundSize: "70px 70px",
+    }}
+  />
 
-        {/* Fade */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_80%)]" />
+  {/* Dark Theme Grid */}
+  <div
+    className="
+      absolute
+      inset-0
+      hidden
+      opacity-[0.12]
+      dark:block
+    "
+    style={{
+      backgroundImage: `
+        linear-gradient(
+          rgba(255,255,255,0.08) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.08) 1px,
+          transparent 1px
+        )
+      `,
+      backgroundSize: "70px 70px",
+    }}
+  />
 
-        {/* Amber Glow */}
-        <div className="absolute left-[-150px] top-[25%] h-[450px] w-[450px] rounded-full bg-amber-500/[0.06] blur-[140px]" />
+  {/* Light Center Fade */}
+  <div
+    className="
+      absolute
+      inset-0
+      bg-[radial-gradient(
+        circle_at_center,
+        transparent_0%,
+        #fafafa_85%
+      )]
+      dark:hidden
+    "
+  />
 
-        <div className="absolute right-[-150px] bottom-[10%] h-[500px] w-[500px] rounded-full bg-amber-400/[0.05] blur-[150px]" />
-      </div>
+  {/* Dark Center Fade */}
+  <div
+    className="
+      absolute
+      inset-0
+      hidden
+      bg-[radial-gradient(
+        circle_at_center,
+        transparent_0%,
+        #050509_85%
+      )]
+      dark:block
+    "
+  />
 
-      {/* =========================
+  {/* Left Purple Glow */}
+  <div
+    className="
+      absolute
+      left-[-150px]
+      top-[25%]
+      h-[450px]
+      w-[450px]
+      rounded-full
+      bg-purple-500/[0.06]
+      blur-[140px]
+      dark:bg-purple-600/[0.10]
+    "
+  />
+
+  {/* Right Purple Glow */}
+  <div
+    className="
+      absolute
+      bottom-[10%]
+      right-[-150px]
+      h-[500px]
+      w-[500px]
+      rounded-full
+      bg-purple-500/[0.05]
+      blur-[150px]
+      dark:bg-purple-500/[0.08]
+    "
+  />
+
+</div>
+      {/* =====================================================
           CONTAINER
-      ========================== */}
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      ====================================================== */}
 
-        {/* =========================
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-7xl
+          px-5
+          sm:px-8
+          lg:px-10
+        "
+      >
+        {/* =================================================
             HEADER
-        ========================== */}
+        ================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end"
+          className="
+            mb-14
+            flex
+            flex-col
+            justify-between
+            gap-6
+            md:flex-row
+            md:items-end
+          "
         >
-
           <div>
-
             {/* Label */}
             <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-10 bg-amber-400" />
+              <span
+                className="
+                  h-px
+                  w-10
+                  bg-purple-600
+                  dark:bg-purple-400
+                "
+              />
 
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-400">
+              <span
+                className="
+                  text-xs
+                  font-semibold
+                  uppercase
+                  tracking-[0.25em]
+                  text-purple-600
+                  dark:text-purple-400
+                "
+              >
                 What We Do
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-[-0.04em] sm:text-5xl md:text-6xl">
+            <h2
+              className="
+                max-w-3xl
+                text-4xl
+                font-semibold
+                leading-[1.08]
+                tracking-[-0.04em]
+                text-slate-950
+                dark:text-white
+                sm:text-5xl
+                md:text-6xl
+              "
+            >
               Digital solutions
-              <span className="block text-white/40">
+              <span
+                className="
+                  block
+                  text-slate-400
+                  dark:text-white/40
+                "
+              >
                 built around your needs.
               </span>
             </h2>
-
           </div>
 
-          <p className="max-w-md text-sm leading-6 text-white/40 md:pb-1">
+          <p
+            className="
+              max-w-md
+              text-sm
+              leading-6
+              text-slate-500
+              dark:text-white/40
+              md:pb-1
+            "
+          >
             From your first idea to a complete digital product, Gyanex
             combines design, technology, and strategy to create solutions
             that deliver real value.
           </p>
-
         </motion.div>
 
-        {/* =========================
+        {/* =================================================
             SERVICES AREA
-        ========================== */}
-        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        ================================================= */}
 
-          {/* =========================
+        <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          {/* =================================================
               LEFT SERVICE LIST
-          ========================== */}
+          ================================================= */}
+
           <div
             className="
               overflow-hidden
               rounded-[30px]
               border
-              border-white/[0.10]
-              bg-white/[0.035]
+              border-slate-200
+              bg-white/70
+              shadow-[0_20px_80px_rgba(15,23,42,0.04)]
               backdrop-blur-2xl
+
+              dark:border-white/[0.10]
+              dark:bg-white/[0.035]
+              dark:shadow-none
             "
           >
-
             {services.map((service, index) => {
               const Icon = service.icon;
               const isActive = activeService === index;
@@ -192,7 +366,7 @@ function Services() {
                     items-center
                     gap-4
                     border-b
-                    border-white/[0.08]
+                    border-slate-200
                     px-5
                     py-6
                     text-left
@@ -200,15 +374,17 @@ function Services() {
                     duration-500
                     last:border-b-0
                     sm:px-7
+
+                    dark:border-white/[0.08]
+
                     ${
                       isActive
-                        ? "bg-white/[0.07]"
-                        : "hover:bg-white/[0.04]"
+                        ? "bg-purple-50/80 dark:bg-white/[0.07]"
+                        : "hover:bg-purple-50/50 dark:hover:bg-white/[0.04]"
                     }
                   `}
                 >
-
-                  {/* Active amber line */}
+                  {/* Active Purple Line */}
                   {isActive && (
                     <motion.div
                       layoutId="serviceLine"
@@ -218,8 +394,10 @@ function Services() {
                         left-0
                         top-0
                         w-[2px]
-                        bg-amber-400
-                        shadow-[0_0_15px_rgba(251,191,36,0.8)]
+                        bg-purple-600
+                        shadow-[0_0_15px_rgba(124,58,237,0.7)]
+                        dark:bg-purple-400
+                        dark:shadow-[0_0_15px_rgba(167,139,250,0.8)]
                       "
                       transition={{
                         type: "spring",
@@ -238,10 +416,11 @@ function Services() {
                       font-medium
                       transition-colors
                       duration-300
+
                       ${
                         isActive
-                          ? "text-amber-400"
-                          : "text-white/25"
+                          ? "text-purple-600 dark:text-purple-400"
+                          : "text-slate-300 dark:text-white/25"
                       }
                     `}
                   >
@@ -261,10 +440,27 @@ function Services() {
                       border
                       transition-all
                       duration-300
+
                       ${
                         isActive
-                          ? "border-amber-400/30 bg-amber-500 text-black"
-                          : "border-white/10 bg-white/[0.04] text-white/50 group-hover:text-white"
+                          ? `
+                            border-purple-500/30
+                            bg-purple-600
+                            text-white
+                            shadow-[0_8px_25px_rgba(124,58,237,0.20)]
+                            dark:border-purple-400/30
+                            dark:bg-purple-500
+                          `
+                          : `
+                            border-slate-200
+                            bg-slate-100
+                            text-slate-400
+                            group-hover:text-purple-600
+                            dark:border-white/10
+                            dark:bg-white/[0.04]
+                            dark:text-white/50
+                            dark:group-hover:text-white
+                          `
                       }
                     `}
                   >
@@ -280,10 +476,11 @@ function Services() {
                       transition-colors
                       duration-300
                       sm:text-lg
+
                       ${
                         isActive
-                          ? "text-white"
-                          : "text-white/55 group-hover:text-white"
+                          ? "text-slate-950 dark:text-white"
+                          : "text-slate-500 group-hover:text-slate-950 dark:text-white/55 dark:group-hover:text-white"
                       }
                     `}
                   >
@@ -297,23 +494,37 @@ function Services() {
                       shrink-0
                       transition-all
                       duration-300
+
                       ${
                         isActive
-                          ? "translate-x-0 -translate-y-0 text-amber-400"
-                          : "translate-x-1 translate-y-1 text-white/20 opacity-0 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+                          ? `
+                            translate-x-0
+                            -translate-y-0
+                            text-purple-600
+                            dark:text-purple-400
+                          `
+                          : `
+                            translate-x-1
+                            translate-y-1
+                            text-slate-300
+                            opacity-0
+                            group-hover:translate-x-0
+                            group-hover:translate-y-0
+                            group-hover:opacity-100
+                            dark:text-white/20
+                          `
                       }
                     `}
                   />
-
                 </button>
               );
             })}
-
           </div>
 
-          {/* =========================
+          {/* =================================================
               RIGHT DETAIL PANEL
-          ========================== */}
+          ================================================= */}
+
           <div
             className="
               relative
@@ -321,16 +532,21 @@ function Services() {
               overflow-hidden
               rounded-[30px]
               border
-              border-white/[0.10]
-              bg-white/[0.045]
+              border-slate-200
+              bg-white/70
               p-7
+              shadow-[0_20px_80px_rgba(15,23,42,0.04)]
               backdrop-blur-2xl
+
+              dark:border-white/[0.10]
+              dark:bg-white/[0.045]
+              dark:shadow-none
+
               sm:p-10
               lg:p-12
             "
           >
-
-            {/* Large background number */}
+            {/* Large Background Number */}
             <AnimatePresence mode="wait">
               <motion.span
                 key={active.number}
@@ -346,31 +562,53 @@ function Services() {
                   font-bold
                   leading-none
                   tracking-[-0.08em]
-                  text-white/[0.025]
+                  text-slate-900/[0.035]
                   sm:text-[190px]
+                  dark:text-white/[0.025]
                 "
               >
                 {active.number}
               </motion.span>
             </AnimatePresence>
 
-            {/* Amber glow */}
-            <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-amber-500/[0.10] blur-[100px]" />
-
-            {/* Decorative grid */}
+            {/* Purple Glow */}
             <div
-              className="pointer-events-none absolute right-0 top-0 h-56 w-56 opacity-[0.08]"
+              className="
+                pointer-events-none
+                absolute
+                -right-20
+                -top-20
+                h-72
+                w-72
+                rounded-full
+                bg-purple-500/[0.08]
+                blur-[100px]
+                dark:bg-purple-500/[0.10]
+              "
+            />
+
+            {/* Decorative Grid */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                right-0
+                top-0
+                h-56
+                w-56
+                opacity-[0.07]
+                dark:opacity-[0.08]
+              "
               style={{
                 backgroundImage: `
-                  linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-                  linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
+                  linear-gradient(rgba(15,23,42,0.35) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(15,23,42,0.35) 1px, transparent 1px)
                 `,
                 backgroundSize: "25px 25px",
               }}
             />
 
             <AnimatePresence mode="wait">
-
               <motion.div
                 key={active.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -382,7 +620,6 @@ function Services() {
                 }}
                 className="relative z-10 flex h-full flex-col"
               >
-
                 {/* Icon */}
                 <div
                   className="
@@ -393,30 +630,61 @@ function Services() {
                     justify-center
                     rounded-2xl
                     border
-                    border-amber-400/20
-                    bg-amber-500/[0.10]
-                    text-amber-400
+                    border-purple-500/20
+                    bg-purple-500/10
+                    text-purple-600
+
+                    dark:border-purple-400/20
+                    dark:bg-purple-500/[0.10]
+                    dark:text-purple-400
                   "
                 >
                   <ActiveIcon size={25} strokeWidth={1.6} />
                 </div>
 
                 {/* Heading */}
-                <h3 className="mt-9 max-w-xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+                <h3
+                  className="
+                    mt-9
+                    max-w-xl
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.03em]
+                    text-slate-950
+                    dark:text-white
+                    sm:text-4xl
+                  "
+                >
                   {active.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-5 max-w-xl text-base leading-7 text-white/45">
+                <p
+                  className="
+                    mt-5
+                    max-w-xl
+                    text-base
+                    leading-7
+                    text-slate-500
+                    dark:text-white/45
+                  "
+                >
                   {active.description}
                 </p>
 
                 {/* Divider */}
-                <div className="my-8 h-px w-full bg-white/10" />
+                <div
+                  className="
+                    my-8
+                    h-px
+                    w-full
+                    bg-slate-200
+                    dark:bg-white/10
+                  "
+                />
 
                 {/* Features */}
                 <div className="grid gap-4 sm:grid-cols-2">
-
                   {active.points.map((point) => (
                     <div
                       key={point}
@@ -431,24 +699,30 @@ function Services() {
                           items-center
                           justify-center
                           rounded-full
-                          bg-amber-500/[0.10]
-                          text-amber-400
+                          bg-purple-500/10
+                          text-purple-600
+                          dark:bg-purple-500/[0.10]
+                          dark:text-purple-400
                         "
                       >
                         <Check size={13} />
                       </span>
 
-                      <span className="text-sm text-white/60">
+                      <span
+                        className="
+                          text-sm
+                          text-slate-500
+                          dark:text-white/60
+                        "
+                      >
                         {point}
                       </span>
                     </div>
                   ))}
-
                 </div>
 
                 {/* Bottom CTA */}
                 <div className="mt-auto pt-10">
-
                   <a
                     href="/contact"
                     className="
@@ -457,16 +731,22 @@ function Services() {
                       items-center
                       gap-2
                       rounded-full
-                      bg-amber-500
+                      bg-gradient-to-r
+                      from-purple-600
+                      to-violet-500
                       px-6
                       py-3.5
                       text-sm
                       font-semibold
-                      text-black
+                      text-white
+                      shadow-[0_10px_30px_rgba(124,58,237,0.18)]
                       transition-all
                       duration-300
-                      hover:bg-amber-400
-                      hover:shadow-[0_0_30px_rgba(245,158,11,0.20)]
+
+                      hover:-translate-y-0.5
+                      hover:from-purple-500
+                      hover:to-violet-400
+                      hover:shadow-[0_15px_40px_rgba(124,58,237,0.28)]
                     "
                   >
                     Discuss Your Project
@@ -481,19 +761,16 @@ function Services() {
                       "
                     />
                   </a>
-
                 </div>
-
               </motion.div>
-
             </AnimatePresence>
-
           </div>
         </div>
 
-        {/* =========================
+        {/* =================================================
             BOTTOM STATEMENT
-        ========================== */}
+        ================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -508,19 +785,21 @@ function Services() {
             gap-5
             rounded-[25px]
             border
-            border-amber-400/15
-            bg-amber-500/[0.045]
+            border-purple-500/15
+            bg-purple-500/[0.04]
             px-6
             py-6
             backdrop-blur-xl
+
+            dark:border-purple-400/15
+            dark:bg-purple-500/[0.045]
+
             sm:flex-row
             sm:items-center
             sm:px-8
           "
         >
-
           <div className="flex items-center gap-3">
-
             <span
               className="
                 flex
@@ -529,17 +808,25 @@ function Services() {
                 items-center
                 justify-center
                 rounded-full
-                bg-amber-500
-                text-black
+                bg-purple-600
+                text-white
+                shadow-[0_0_25px_rgba(124,58,237,0.25)]
+                dark:bg-purple-500
               "
             >
               <Sparkles size={16} />
             </span>
 
-            <p className="text-sm text-white/60 sm:text-base">
+            <p
+              className="
+                text-sm
+                text-slate-500
+                dark:text-white/60
+                sm:text-base
+              "
+            >
               Have an idea? Let's turn it into something valuable.
             </p>
-
           </div>
 
           <a
@@ -551,10 +838,13 @@ function Services() {
               gap-2
               text-sm
               font-medium
-              text-amber-400
+              text-purple-600
               transition-colors
               duration-300
-              hover:text-amber-300
+              hover:text-purple-500
+
+              dark:text-purple-400
+              dark:hover:text-purple-300
             "
           >
             Start a conversation
@@ -569,14 +859,24 @@ function Services() {
               "
             />
           </a>
-
         </motion.div>
-
       </div>
 
       {/* Bottom Fade */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent" />
-
+      <div
+        className="
+          pointer-events-none
+          absolute
+          bottom-0
+          left-0
+          right-0
+          h-24
+          bg-gradient-to-t
+          from-[#fafafa]
+          to-transparent
+          dark:from-[#050509]
+        "
+      />
     </section>
   );
 }
