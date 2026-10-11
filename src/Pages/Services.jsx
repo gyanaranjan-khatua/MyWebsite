@@ -9,6 +9,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Import your images from assets
 import websiteImage from "../assets/webdev.png";
@@ -520,8 +521,8 @@ function Services() {
                     dark:border-white/[0.08]
                   "
                 >
-                  <a
-                    href="#contact"
+                  <Link
+                    to="/contact"
                     className="
                       group inline-flex
                       items-center gap-2
@@ -551,7 +552,7 @@ function Services() {
                         group-hover:translate-x-0.5
                       "
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -618,8 +619,8 @@ function Services() {
               </p>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="
                 group inline-flex shrink-0
                 items-center justify-center gap-2
@@ -645,7 +646,7 @@ function Services() {
                   group-hover:translate-x-0.5
                 "
               />
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

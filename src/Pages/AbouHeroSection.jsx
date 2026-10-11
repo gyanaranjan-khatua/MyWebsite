@@ -1,9 +1,8 @@
 import React from "react";
 import { ArrowUpRight, CheckCircle2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import aboutHeroImage from "../assets/about-hero.png";
-
 function AbouHeroSection() {
   return (
     <section className="relative min-h-[85vh] overflow-hidden bg-[#fafafa] text-slate-950 dark:bg-[#050509] dark:text-white">
@@ -78,20 +77,20 @@ function AbouHeroSection() {
 
             {/* CTA */}
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-600 dark:bg-white dark:text-slate-950 dark:hover:bg-violet-400"
               >
                 Let's Work Together
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              </Link>
 
-              <a
-                href="#services"
+              <Link
+                to="/services"
                 className="rounded-full border border-slate-300 bg-white/60 px-6 py-3.5 text-sm font-semibold text-slate-700 backdrop-blur-md transition-all duration-300 hover:border-violet-400 hover:text-violet-600 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-300 dark:hover:border-violet-400 dark:hover:text-violet-400"
               >
                 Explore Our Services
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -102,6 +101,8 @@ function AbouHeroSection() {
             transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
             className="relative"
           >
+
+
             {/* Glow */}
             <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 blur-2xl" />
 

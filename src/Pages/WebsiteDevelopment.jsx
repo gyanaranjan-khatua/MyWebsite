@@ -109,18 +109,18 @@ function WebsiteDevelopment() {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative h-full min-h-[360px] lg:min-h-0"
+            className="relative flex h-full min-h-[300px] items-center justify-center"
           >
             {/* Image Glow */}
             <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-fuchsia-500/20 blur-2xl" />
 
             {/* Image Container */}
-            <div className="relative h-full overflow-hidden rounded-[2rem] border border-slate-200 bg-white/50 p-2 shadow-2xl shadow-slate-300/20 backdrop-blur-xl dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-black/30">
-              <div className="relative h-full min-h-[350px] overflow-hidden rounded-[1.5rem]">
+            <div className="relative w-full max-w-2xl overflow-hidden rounded-[2rem] border border-slate-200 bg-white/50 p-2 shadow-2xl shadow-slate-300/20 backdrop-blur-xl dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-black/30">
+              <div className="relative h-full min-h-[300px] overflow-hidden rounded-[1.5rem]">
                 <img
                   src={websiteDevelopmentImage}
                   alt="Professional website development"
-                  className="h-full w-full object-contain transition duration-700"
+                  className="h-full w-full object-contain transition rounded-2xl duration-700"
                 />
 
                 {/* Image Overlay */}

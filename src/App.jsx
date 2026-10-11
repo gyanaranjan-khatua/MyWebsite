@@ -11,6 +11,11 @@ import Blog from './Pages/Blog'
 import { DockDemo } from './Components/dockIcon'
 import { SmoothCursor } from './Components/ui/smooth-cursor'
 import { motion } from "framer-motion";
+import WebDev from './Services/WebDev'
+import AppDev from './Services/AppDev'
+import UiUx from './Services/UiUx'
+import Marketing from './Services/Marketing'
+import EnquiryPopup from './Components/EnquiryPopup'
 function App() {
   return (
     <>
@@ -36,6 +41,11 @@ function App() {
       <Route path="/services" element={<Services/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/blog" element={<Blog/>}/>
+      <Route path="/webdev" element={<WebDev/>}/>
+      <Route path="/appdev" element={<AppDev/>}/>
+      <Route path="/uiux" element={<UiUx/>}/>
+      <Route path="/marketing" element={<Marketing/>}/>
+      <Route path="/enquire-form" element={<EnquiryPopup/>}/>
      
      
       </Routes>

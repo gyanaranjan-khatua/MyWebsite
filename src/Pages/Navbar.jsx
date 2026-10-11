@@ -9,6 +9,7 @@ import {
 import { motion } from "framer-motion";
 import { AnimatedThemeToggler } from "../Components/ui/animated-theme-toggler";
 import { CoolMode } from "@/Components/ui/cool-mode";
+import logo from "../assets/logo.jpeg";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,50 +79,12 @@ function Navbar() {
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="group relative  z-10 flex items-center"
+            className="relative z-10 flex items-center"
           >
-            <span
-              className="
-                text-[28px]
-                font-semibold
-                tracking-[-0.04em]
-                text-slate-950
-                transition-all duration-300
-
-                dark:text-white
-
-                sm:text-[30px]
-              "
-            >
-              Gyan
-              <span
-                className="
-                  text-purple-600
-                  transition-colors duration-300
-                  group-hover:text-purple-500
-
-                  dark:text-purple-400
-                  dark:group-hover:text-purple-300
-                "
-              >
-                ex
-              </span>
-            </span>
-
-            {/* Purple Underline */}
-            <span
-              className="
-                absolute
-                -bottom-1
-                left-0
-                h-[1px]
-                w-0
-                bg-purple-600
-                transition-all duration-500
-                group-hover:w-full
-
-                dark:bg-purple-400
-              "
+            <img
+              src={logo}
+              alt="Gyanex"
+              className="h-15 w-[170px] rounded-lg object-cover"
             />
           </Link>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {AnimatedGradientText} from "./../Components/ui/animated-gradient-text"
 // Dark theme image
 import heroDarkImage from "../assets/darkheroimg.jpeg";
@@ -8,8 +9,8 @@ import heroDarkImage from "../assets/darkheroimg.jpeg";
 // Light theme image
 import heroLightImage from "../assets/lightheroimg.jpeg";
 import { BorderBeam } from "@/Components/ui/border-beam";
-import { Button } from "@/Components/ui/button";
 import { Highlighter } from "@/Components/ui/highlighter";
+import { DiaTextReveal } from "@/Components/ui/dia-text-reveal";
 
 function HeroSection() {
   return (
@@ -252,8 +253,14 @@ function HeroSection() {
               xl:text-[74px]
             "
           >
-            We Build Digital
-<br />
+             <DiaTextReveal
+                    className="text-4xl sm:text-5xl md:text-6xl font-bold text-purple-500 tracking-tight"
+                    colors={["#f97316", "#eab308", "#22c55e", "#3b82f6", "#a855f7"]}
+                    delay={0.35}
+                    duration={2.4}
+                    text="We Build Digital"
+                  />
+                  <br />
              <AnimatedGradientText
       speed={1}
       colorFrom="##9b34eb"
@@ -301,8 +308,8 @@ from web Development
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             {/* Get Started */}
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="
                 group
                 inline-flex
@@ -341,15 +348,14 @@ from web Development
                   group-hover:translate-x-0.5
                 "
               />
-            </a>
+            </Link>
 
-            {/* View Work */}
-            <Button
-              className="relative h-12 w-44 rounded-full overflow-hidden"
-              size="lg"
-              variant="outline"
+            {/* Explore services */}
+            <Link
+              to="/services"
+              className="relative inline-flex h-12 w-44 items-center justify-center overflow-hidden rounded-full border border-slate-300 bg-white px-7 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
             >
-              Explore Our Services
+              Explore  Services
               <BorderBeam
                 size={40}
                 initialOffset={20}
@@ -360,7 +366,7 @@ from web Development
                   damping: 20,
                 }}
               />
-            </Button>
+            </Link>
           </div>
 
           {/* =================================================

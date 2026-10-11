@@ -14,6 +14,33 @@ import { FaFacebook } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 
 function Contact() {
+  const handleWhatsAppSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const projectType =
+      form.elements.subject.selectedOptions[0]?.textContent ?? "";
+    const message = encodeURIComponent(
+      [
+        "Hello Gyanex Technology",
+        "",
+        `Name: ${formData.get("name") || ""}`,
+        `Email: ${formData.get("email") || ""}`,
+        `Phone: ${formData.get("phone") || ""}`,
+        `Project Type: ${projectType}`,
+        `Project Details: ${formData.get("message") || ""}`,
+      ].join("\n"),
+    );
+    const phoneNumber = "919040738633";
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const whatsappUrl = isMobile
+      ? `whatsapp://send?phone=${phoneNumber}&text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   const contactDetails = [
     {
       icon: PhoneCall,
@@ -200,7 +227,7 @@ function Contact() {
                 </p>
               </div>
 
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleWhatsAppSubmit}>
                 {/* Name + Email */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
@@ -213,6 +240,7 @@ function Contact() {
 
                     <input
                       id="name"
+                      name="name"
                       type="text"
                       placeholder="John Doe"
                       className="
@@ -244,6 +272,7 @@ function Contact() {
 
                     <input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="john@example.com"
                       className="
@@ -277,6 +306,7 @@ function Contact() {
 
                   <input
                     id="phone"
+                    name="phone"
                     type="tel"
                     placeholder="+91 98765 43210"
                     className="
@@ -309,6 +339,7 @@ function Contact() {
 
                   <select
                     id="subject"
+                    name="subject"
                     defaultValue=""
                     className="
                       w-full rounded-2xl
@@ -348,6 +379,7 @@ function Contact() {
 
                   <textarea
                     id="message"
+                    name="message"
                     rows="5"
                     placeholder="Tell us about your idea, requirements, timeline..."
                     className="
