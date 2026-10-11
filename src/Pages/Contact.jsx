@@ -66,7 +66,7 @@ function Contact() {
     {
       icon: BsInstagram,
       name: "Instagram",
-      href: "#",
+      href: "https://www.instagram.com/gyanex_solutions/?hl=en",
     },
     {
       icon: FaFacebook,

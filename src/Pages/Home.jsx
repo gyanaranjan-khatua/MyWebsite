@@ -5,6 +5,9 @@ import ServiceSection from './ServiceSection'
 import WhyChooseUs from './WhyChooseUs'
 import WebsiteDevelopment from './WebsiteDevelopment'
 import Faq from './Faq'
+import AppDev from '@/Services/AppDev'
+import AppDevelopment from './AppDevelopment'
+import AdminPanel from './AdminPanel'
 
 
 
@@ -17,6 +20,9 @@ function Home() {
   
      <ServiceSection/>
    <WebsiteDevelopment/>
+   <AppDevelopment/>
+   <AppDev/>
+   <AdminPanel/>
   
 
    

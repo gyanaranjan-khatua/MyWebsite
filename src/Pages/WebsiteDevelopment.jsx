@@ -5,6 +5,23 @@ import { motion } from "framer-motion";
 import websiteDevelopmentImage from "../assets/webdev.png";
 
 function WebsiteDevelopment() {
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "919040738633";
+    const message = encodeURIComponent(
+      [
+        "Hello Gyanex Technology",
+        "",
+        "I'm interested in booking your website development service.",
+      ].join("\n"),
+    );
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const whatsappUrl = isMobile
+      ? `whatsapp://send?phone=${phoneNumber}&text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   const features = [
     "Modern & responsive design",
     "Fast and performance-focused",
@@ -88,13 +105,14 @@ function WebsiteDevelopment() {
 
             {/* CTA */}
             <div className="mt-7 flex items-center gap-4">
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={handleWhatsAppClick}
                 className="group inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-600 dark:bg-white dark:text-slate-950 dark:hover:bg-violet-400"
               >
                 Book Now
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
+              </button>
 
               <div className="hidden items-center gap-2 text-xs text-slate-500 sm:flex dark:text-slate-500">
                 <Sparkles className="h-4 w-4 text-violet-500" />

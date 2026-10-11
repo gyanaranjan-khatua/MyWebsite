@@ -8,7 +8,7 @@ import Footer from './Pages/Footer'
 import Navbar from './Pages/Navbar'
 import Home from './Pages/Home'
 import Blog from './Pages/Blog'
-import { DockDemo } from './Components/dockIcon'
+
 import { SmoothCursor } from './Components/ui/smooth-cursor'
 import { motion } from "framer-motion";
 import WebDev from './Services/WebDev'
@@ -19,20 +19,7 @@ import EnquiryPopup from './Components/EnquiryPopup'
 function App() {
   return (
     <>
-     <motion.div
-  className="fixed bottom-6 right-6 z-50"
-  animate={{
-    y: [0, -6, 0, 5, 0],
-    x: [0, 2, 0, -2, 0],
-  }}
-  transition={{
-    duration: 4,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
->
-  <DockDemo />
-</motion.div>
+   
       <SmoothCursor/>
   <Navbar/>
     <Routes>

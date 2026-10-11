@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 
 // Import your images from assets
 import websiteImage from "../assets/webdev.png";
-import webAppImage from "../assets/webdev.png";
+import webAppImage from "../assets/adminpanel.png";
 import mobileImage from "../assets/appdev.png";
-import uiuxImage from "../assets/appdev.png";
-import marketingImage from "../assets/appdev.png";
+
+import marketingImage from "../assets/digital-marketing.png";
 
 function Services() {
   const services = [
@@ -74,24 +74,7 @@ function Services() {
       ],
       technologies: ["React Native", "Expo", "JavaScript", "REST API"],
     },
-    {
-      id: "04",
-      title: "UI/UX Design",
-      shortTitle: "UI / UX",
-      description:
-        "Thoughtful interfaces and user experiences that make digital products intuitive, visually engaging, and easy to use.",
-      image: uiuxImage,
-      icon: Palette,
-      color: "indigo",
-      features: [
-        "Website UI Design",
-        "Mobile App UI",
-        "Dashboard Design",
-        "Design Systems",
-        "User Experience Strategy",
-      ],
-      technologies: ["Figma", "Wireframes", "Prototyping", "Design Systems"],
-    },
+   
     {
       id: "05",
       title: "Digital Marketing",
@@ -232,7 +215,7 @@ function Services() {
             <div className="mt-6 flex items-center gap-3">
               <div className="h-px w-12 bg-purple-500" />
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                Gyanex Digital
+                Gyanex Solutions
               </span>
             </div>
           </motion.div>

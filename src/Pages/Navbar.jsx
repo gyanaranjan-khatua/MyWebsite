@@ -21,7 +21,7 @@ function Navbar() {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Contact", path: "/contact" },
-    { name: "Blog", path: "/blog" },
+    // { name: "Blog", path: "/blog" },
   ];
 
   /* ---------------------------------
@@ -222,8 +222,8 @@ function Navbar() {
             />
 
             {/* Desktop CTA */}
-            <Link
-              to="/contact"
+            <a
+              href="tel:+919040738633"
               className="
                 group
                 hidden
@@ -249,7 +249,7 @@ function Navbar() {
                 lg:flex
               "
             >
-              Let's Talk
+              Let's Talk-9040738633
 
               <ArrowUpRight
                 size={17}
@@ -259,7 +259,7 @@ function Navbar() {
                   group-hover:translate-x-0.5
                 "
               />
-            </Link>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -379,8 +379,8 @@ function Navbar() {
               ))}
 
               {/* Mobile CTA */}
-              <Link
-                to="/contact"
+              <a
+                href="tel:+919040738633"
                 onClick={() => setIsOpen(false)}
                 className="
                   mt-2
@@ -402,9 +402,9 @@ function Navbar() {
                   hover:to-violet-400
                 "
               >
-                Let's Talk
+                Let's Talk-9040738633
                 <ArrowUpRight size={17} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

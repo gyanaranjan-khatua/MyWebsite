@@ -1,55 +1,55 @@
 import React from "react";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { LiaLinkedin } from "react-icons/lia";
+import { FaUser, FaUserTie } from "react-icons/fa6";
 
 const teamMembers = [
   {
     name: "Gyanaranjan Khatua",
     role: "CEO & Founder",
-    image: "https://i.pravatar.cc/600?img=12",
+    gender: "male",
     description:
-      "Gyanaranjan is a passionate software developer and the founder of Gyanex. With a strong focus on frontend engineering, modern web technologies, and user experience, he turns ideas into reliable and high-quality digital products. His approach combines clean development, thoughtful design, and business understanding to create solutions that deliver real value.",
+      "Gyanaranjan leads Gyanex as CEO and founder, focusing on frontend engineering, modern web technologies, and user experience. He turns ideas into polished, reliable digital products.",
     skills: ["Frontend Engineering", "React.js", "Next.js", "Web Development"],
   },
   {
-    name: "Fullstack Developer",
-    role: "Tech Lead",
-    image: "https://i.pravatar.cc/600?img=11",
+    name: "Hinangshu",
+    role: "Director & Full-Stack Developer",
+    gender: "male",
     description:
-      "Our Tech Lead focuses on building robust and scalable applications across the frontend and backend. From architecture and APIs to databases and deployment, the role ensures that every technical decision supports performance, maintainability, and long-term growth.",
-    skills: ["Full Stack", "Node.js", "APIs", "Architecture"],
+      "Hinangshu directs the startup, bringing experience in software development and marketing. He is also a full-stack developer, guiding products from planning through launch.",
+    skills: ["Full Stack", "Software Development", "Marketing", "Leadership"],
   },
   {
-    name: "Jashmini Dash",
-    role: "UI/UX Designer",
-    image: "https://i.pravatar.cc/600?img=47",
+    name: "Jitendra",
+    role: "Application & Full-Stack Developer",
+    gender: "male",
     description:
-      "Jashmini focuses on creating intuitive and engaging digital experiences. By combining visual design, usability, and user-centered thinking, she transforms complex ideas into clean interfaces that feel natural, modern, and easy to use.",
-    skills: ["UI Design", "UX Design", "Prototyping", "User Experience"],
+      "Jitendra is an application developer and Laravel full-stack developer, building reliable mobile and web experiences with a focus on performance and usability.",
+    skills: ["App Development", "Laravel", "Full Stack", "Mobile Apps"],
   },
   {
-    name: "Jetendra",
-    role: "App Developer",
-    image: "https://i.pravatar.cc/600?img=68",
+    name: "Jashmin Dash",
+    role: "Social Media Manager",
+    gender: "female",
     description:
-      "Jetendra is an application developer with experience in Flutter, focused on creating smooth, responsive, and reliable mobile experiences. He works on turning product ideas into practical mobile applications with attention to performance and usability.",
-    skills: ["Flutter", "Mobile Development", "Dart", "App UI"],
+      "Jashmin Dash manages social media, creating engaging content and campaigns that strengthen brand presence and connect with the right audience.",
+    skills: ["Social Media", "Content Creation", "Campaigns", "Brand Growth"],
   },
   {
     name: "Hrudananda",
     role: "Graphics Designer",
-    image: "https://i.pravatar.cc/600?img=13",
+    gender: "male",
     description:
-      "Hrudananda creates visual assets that help brands communicate clearly and make a lasting impression. From digital graphics to marketing visuals, he brings ideas to life through thoughtful design.",
+      "Hrudananda creates thoughtful visual assets, from digital graphics to marketing materials, helping brands communicate clearly and make a lasting impression.",
     skills: ["Graphic Design", "Branding", "Visual Design", "Creative"],
   },
   {
     name: "Geeta",
     role: "Digital Marketer",
-    image: "https://i.pravatar.cc/600?img=44",
+    gender: "female",
     description:
-      "Geeta helps brands grow their online presence through thoughtful digital marketing. She focuses on connecting businesses with their audiences and supporting meaningful, measurable engagement.",
+      "Geeta helps brands grow online through digital marketing, connecting businesses with their audiences and supporting meaningful, measurable engagement.",
     skills: ["Digital Marketing", "Social Media", "Content Strategy", "Growth"],
   },
 ];
@@ -116,18 +116,24 @@ function OurTeam() {
                 duration: 0.6,
                 delay: index * 0.08,
               }}
-              className="group relative overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white/70 p-3 shadow-xl shadow-slate-200/30 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-violet-400/40 hover:shadow-violet-500/10 dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-black/20"
+              className="group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white/70 p-3 shadow-xl shadow-slate-200/30 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-violet-400/40 hover:shadow-violet-500/10 dark:border-white/[0.09] dark:bg-white/[0.035] dark:shadow-black/20"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/4.5] overflow-hidden rounded-[1.4rem]">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-full w-full object-cover grayscale-[15%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
-                />
-
-                {/* Image Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              {/* Member Icon */}
+              <div className="relative flex aspect-[4/4.5] items-center justify-center overflow-hidden rounded-[1.4rem] bg-gradient-to-br from-violet-100 via-purple-50 to-fuchsia-100 dark:from-violet-950/70 dark:via-[#151020] dark:to-fuchsia-950/50">
+                <div className="absolute inset-0 bg-gradient-to-t from-violet-950/70 via-transparent to-transparent" />
+                <div className="flex h-36 w-36 items-center justify-center rounded-full border border-violet-400/20 bg-white/50 text-violet-500 shadow-xl shadow-violet-900/10 dark:bg-white/[0.06] dark:text-violet-300">
+                  {member.gender === "female" ? (
+                    <FaUser
+                      aria-hidden="true"
+                      className="h-16 w-16 transition-transform duration-500 group-hover:scale-110"
+                    />
+                  ) : (
+                    <FaUserTie
+                      aria-hidden="true"
+                      className="h-16 w-16 transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
+                </div>
 
                 {/* Role */}
                 <div className="absolute bottom-4 left-4 right-4">
@@ -139,25 +145,16 @@ function OurTeam() {
                     {member.name}
                   </h3>
                 </div>
-
-                {/* LinkedIn Button */}
-                <button
-                  type="button"
-                  className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-white backdrop-blur-xl transition-all duration-300 hover:bg-violet-600"
-                  aria-label={`${member.name} LinkedIn`}
-                >
-                  <LiaLinkedin className="h-4 w-4" />
-                </button>
               </div>
 
               {/* Content */}
-              <div className="p-5">
-                <p className="text-sm leading-7 text-slate-600 dark:text-slate-400">
+              <div className="flex flex-1 flex-col p-5">
+                <p className="line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-slate-600 dark:text-slate-400">
                   {member.description}
                 </p>
 
                 {/* Skills */}
-                <div className="mt-5 flex flex-wrap gap-2">
+                <div className="mt-auto flex min-h-[4.5rem] flex-wrap content-start gap-2 pt-5">
                   {member.skills.map((skill) => (
                     <span
                       key={skill}

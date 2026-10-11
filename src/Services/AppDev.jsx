@@ -354,7 +354,7 @@ function AppDev() {
           </div>
 
           {/* CTA buttons */}
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          {/* <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
               className="group inline-flex items-center gap-2 rounded-xl bg-violet-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:bg-violet-500 hover:shadow-violet-500/35"
@@ -373,7 +373,7 @@ function AppDev() {
               Our Process
               <ArrowUpRight size={16} />
             </a>
-          </div>
+          </div> */}
 
           {/* Bottom trust line */}
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-slate-200 pt-5 text-xs text-slate-500 dark:border-white/10 dark:text-slate-400">

@@ -297,7 +297,7 @@ function Footer() {
 
               {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/gyanex_solutions/?hl=en"
                 aria-label="Instagram"
                 className="
                   flex h-10 w-10
@@ -558,22 +558,7 @@ function Footer() {
                 </Link>
               </li>
 
-              <li>
-                <Link
-                  to="/services"
-                  className="
-                    text-sm
-                    text-slate-500
-                    transition-colors
-                    duration-300
-                    hover:text-purple-600
-                    dark:text-slate-400
-                    dark:hover:text-purple-300
-                  "
-                >
-                  UI / UX Design
-                </Link>
-              </li>
+             
 
               <li>
                 <Link
@@ -641,7 +626,7 @@ function Footer() {
                     dark:group-hover:text-purple-300
                   "
                 >
-                  hello@gyanex.in
+                  gyanaranjank020@gmail.com
                 </span>
               </a>
 
