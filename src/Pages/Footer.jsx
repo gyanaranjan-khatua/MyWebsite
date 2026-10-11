@@ -718,7 +718,7 @@ function Footer() {
           <div className="flex items-center gap-6">
 
             <Link
-              to="/privacy"
+              to="/privacy-policy"
               className="
                 transition-colors
                 duration-300
