@@ -329,7 +329,7 @@ function Footer() {
               </a>
 
               {/* LinkedIn */}
-              <a
+              {/* <a
                 href="#"
                 aria-label="LinkedIn"
                 className="
@@ -359,10 +359,10 @@ function Footer() {
                 "
               >
                 <FaLinkedinIn size={17} />
-              </a>
+              </a> */}
 
               {/* Facebook */}
-              <a
+              {/* <a
                 href="#"
                 aria-label="Facebook"
                 className="
@@ -392,7 +392,7 @@ function Footer() {
                 "
               >
                 <FaFacebookF size={15} />
-              </a>
+              </a> */}
             </div>
           </div>
 
