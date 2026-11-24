@@ -20,6 +20,7 @@ import PrivacyPolicy from './Pages/PrivacyPolicy'
 import Terms from './Pages/Terms'
 import { FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
+import ThankYou from './Pages/ThankYou'
 function ScrollToTop() {
 
   
@@ -82,6 +83,7 @@ function App() {
       <Route path="/enquire-form" element={<EnquiryPopup/>}/>
       <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
       <Route path="/terms" element={<Terms/>}/>
+      <Route path="/thankyou" element={<ThankYou/>}/>
      
      
       </Routes>

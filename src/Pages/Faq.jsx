@@ -5,7 +5,7 @@ import { Plus, Minus, MessageCircle, ArrowUpRight } from "lucide-react";
 
 const faqs = [
   {
-    question: "What services does Gyanex Technology provide?",
+    question: "What services does Gyanex Solution provide?",
     answer:
       "We provide website development, mobile app development, UI/UX design, full-stack application development, and digital marketing services tailored to your business needs.",
   },
@@ -40,7 +40,7 @@ const faqs = [
       "Yes. We can help modernize your existing website with an improved user experience, refreshed design, better responsiveness, and functionality aligned with your goals.",
   },
   {
-    question: "How can I get started with Gyanex Technology?",
+    question: "How can I get started with Gyanex Solution?",
     answer:
       "Getting started is simple. Send us an enquiry with your name, contact number, and project requirements. We'll connect with you on WhatsApp to discuss the next steps.",
   },
@@ -52,7 +52,7 @@ function Faq() {
   const handleWhatsAppClick = () => {
     const phoneNumber = "919040738633";
     const message = encodeURIComponent(
-      "Hello Gyanex Technology! I have a question about your services."
+      "Hello Gyanex Solution! I have a question about your services."
     );
     const isMobile = /Android|iPhone|iPad|iPod/i.test(
       navigator.userAgent

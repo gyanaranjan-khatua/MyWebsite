@@ -218,16 +218,8 @@ function AppDevelopment() {
               </div>
             </div>
 
-            {/* Floating Accent */}
-            <motion.div
-              animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute -left-3 -top-3 hidden h-14 w-14 rounded-2xl border border-violet-400/20 bg-violet-500/10 backdrop-blur-xl sm:block"
-            />
+           
+         
           </motion.div>
         </div>
       </div>

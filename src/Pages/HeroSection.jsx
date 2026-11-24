@@ -3,11 +3,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {AnimatedGradientText} from "./../Components/ui/animated-gradient-text"
-// Dark theme image
-import heroDarkImage from "../assets/darkheroimg.jpeg";
-
-// Light theme image
-import heroLightImage from "../assets/lightheroimg.jpeg";
+import codingImage from "../assets/coding.png";
 import { BorderBeam } from "@/Components/ui/border-beam";
 import { Highlighter } from "@/Components/ui/highlighter";
 import { DiaTextReveal } from "@/Components/ui/dia-text-reveal";
@@ -29,86 +25,14 @@ function HeroSection() {
         dark:text-white
       "
     >
-      {/* =====================================================
-          FULL BACKGROUND IMAGE
-      ====================================================== */}
-
       <div className="pointer-events-none absolute inset-0">
-        {/* Dark Theme Image */}
-        <img
-          src={heroDarkImage}
-          alt=""
-          aria-hidden="true"
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            object-center
-            opacity-0
-            transition-opacity
-            duration-700
-            dark:opacity-100
-          "
-        />
-
-        {/* Light Theme Image */}
-        <img
-          src={heroLightImage}
-          alt=""
-          aria-hidden="true"
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            opacity-100
-            transition-opacity
-            duration-700
-            dark:opacity-0
-          "
-        />
-
-        {/* =================================================
-            LEFT SIDE PREMIUM FADE
-        ================================================= */}
-
-        {/* Light Theme Fade */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-r
-            from-[#fafafa]
-            from-[0%]
-            via-[#fafafa]/95
-            via-[28%]
-          
-            to-transparent
-            dark:hidden
-          "
-        />
-
-        {/* Dark Theme Fade */}
-        <div
-          className="
-            absolute
-            inset-0
-            hidden
-            bg-gradient-to-r
-            from-[#050509]
-            from-[0%]
-            via-[#050509]/95
-            via-[25%]
-            via-[#050509]/75
-            
-           
-            to-transparent
-            dark:block
-          "
-        />
+        <div className="absolute inset-y-0 right-0 hidden w-[50%] lg:block">
+          <img
+            src={codingImage}
+            alt="Developer working on a laptop in a purple-lit workspace"
+            className="h-full w-full object-cover object-center"
+          />
+        </div>
 
         {/* =================================================
             EXTRA SOFT LEFT GLOW
@@ -174,11 +98,12 @@ function HeroSection() {
           z-10
           mx-auto
           flex
+          flex-col
           min-h-screen
           lg:min-h-[50vh]
           w-full
           max-w-[1500px]
-          items-center
+          items-start
           px-5
           pb-16
           pt-28
@@ -186,6 +111,8 @@ function HeroSection() {
           md:px-12
           lg:px-16
           xl:px-20
+          lg:flex-row
+          lg:items-center
         "
       >
         {/* =================================================
@@ -489,29 +416,15 @@ from web Development
             </div>
           </div>
         </motion.div>
+
+        <div className="mt-10 w-full sm:mt-12 lg:hidden">
+          <img
+            src={codingImage}
+            alt="Developer working on a laptop in a purple-lit workspace"
+            className="aspect-[4/3] w-full object-cover object-center"
+          />
+        </div>
       </div>
-
-      {/* =====================================================
-          RIGHT SIDE IMAGE VISIBILITY ENHANCEMENT
-      ====================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          right-0
-          top-0
-          z-[2]
-          hidden
-          h-full
-          w-[52%]
-          bg-gradient-to-l
-          from-transparent
-          via-transparent
-          to-transparent
-          lg:block
-        "
-      />
 
       {/* Bottom Fade */}
       <div
